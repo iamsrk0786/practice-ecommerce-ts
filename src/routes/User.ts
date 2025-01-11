@@ -4,8 +4,8 @@ const app = Router();
 
 app.post('/', createUserController);
 app.get('/', getAllUsersController);
-app.get('/:id', getUserController);
-app.put('/:id', updateUserController);
-app.delete('/:id', deleteUserController);
+// app.get('/:id', getUserController);
+// app.put('/:id', updateUserController);
+app.route('/:id').get(getUserController).put(updateUserController).delete(deleteUserController);
 
 export default app;

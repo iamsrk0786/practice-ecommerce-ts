@@ -1,6 +1,13 @@
-import { timeStamp } from "console";
 import mongoose from "mongoose";
+interface User extends Document{
+name: string;
+email: string;
+role: "user" | "admin";
+dob: Date;
+createdAt: Date;
+updatedAt: Date;
 
+}
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -28,4 +35,4 @@ const userSchema = new mongoose.Schema({
 
 );
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model<User>("User", userSchema);

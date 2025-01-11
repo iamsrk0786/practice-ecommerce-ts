@@ -1,11 +1,11 @@
-import { createUser, getAllUsers, getUser, updateUser, deleteUser } from "../services/User";
+import { createUser, getAllUsers, getUser, updateUser, deleteUser } from "../../src/services/User";
 import { Request, Response } from "express";
 
 
 const createUserController = async (req:Request , res:Response ) => {
     try {
-        const user = await createUser(req.body);
-        res.status(201).json(user);
+        const user = await createUser( req.body);
+        res.status(201).json({user, message: "User created successfully"});
     } catch (error:any) {
         res.status(400).json({ message: error.message });
     }
